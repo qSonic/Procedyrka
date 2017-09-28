@@ -1,1 +1,1 @@
-1LAB = tconverter.c
+LAB1 = tconvert.c
