@@ -1,0 +1,78 @@
+package Matrix;
+
+public class Matrix {
+	public static void main(String[] args) {		
+		int[][] ac = new int[4][5];
+		int[][] ac2 = new int[3][4];
+		int m, n, k = 10, min = 10000, del1 = 1 , del2 = 1;
+			for(m = 0; m < 4; m++)
+				for(n = 0; n < 5; n++) {
+				ac[m][n] = k;
+				k++;
+				}
+			for(m = 0; m < 4; m++) {
+				for(n = 0; n < 5; n++) {
+					System.out.print(ac[m][n] + " ");
+					}
+					System.out.println();
+					}
+		System.out.println(" ");		
+		int tmp[] = ac[0];
+		ac[0] = ac[3];
+		ac[3] = tmp;
+		for(m = 0; m < 4; m++) {
+			for(n = 0; n < 5; n++) {
+				System.out.print(ac[m][n] + " ");
+				}
+				System.out.println();
+				}
+		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+	
+			
+			
+			
+			for(m = 0; m < 4; m++) {
+				for(n = 0; n < 5; n++) {
+					if (ac[m][n] < min) {
+						min = ac[m][n];
+						del1 = m;
+						del2 = n;
+						}
+					}
+				}
+		System.out.println(min + " " + del1 + " " + del2);
+		int ln, cn;
+			for (m = 0, ln = 0; ln < 3;) {
+				if (m!=del1) {
+					for (n = 0,  cn= 0 ; cn<4; n++, cn++) {
+						if (n==del2) n++;
+							ac2[ln][cn]=ac[m][n];
+							}
+							m++;
+							ln++;
+					} else m++; 
+				}
+							ac=ac2;
+				for(m = 0; m < 3; m++) {
+					for(n = 0; n < 4; n++) {
+				System.out.print(ac[m][n] + " ");
+					}
+				System.out.println();
+				
+				}
+		}
+}
