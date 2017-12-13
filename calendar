@@ -1,0 +1,21 @@
+package calendar;
+import java.util.Scanner;
+
+public class Calendar {
+
+		public static String weekday(int day, int month, int year){
+	        String days[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+	        int a = (14 - month) / 12, y = year - a, m = month + 12 * a - 2;
+	        return days[(day + y + y / 4 - y / 100 + y / 400 + (31 * m) / 12) % 7];
+	}
+		public static void main(String[] args) {
+			int o,p,q;
+			Scanner in = new Scanner(System.in);
+			o = in.nextInt();
+			p = in.nextInt();
+			q = in.nextInt();			
+		System.out.println(weekday(o, p, q));
+		}
+		
+		
+	}
