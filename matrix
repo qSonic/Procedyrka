@@ -1,10 +1,10 @@
 package Matrix;
-
+import java.util.Scanner;
 public class Matrix {	
 	public static void main(String[] args) {		
 		int[][] ac = new int[4][5];
 		int[][] ac2 = new int[3][4];
-		int m, n, k = 10, min = 10000, del1 = 1 , del2 = 1;
+		int m, n, p, q, sum = 0, c, d, k = 10, min = 10000, del1 = 1 , del2 = 1;
 			for(m = 0; m < 4; m++)
 				for(n = 0; n < 5; n++) {
 				ac[m][n] = k;
@@ -60,7 +60,8 @@ public class Matrix {
 						}
 					}
 				}
-		System.out.println(min + " " + del1 + " " + del2);
+		System.out.println();
+		System.out.println("min = " + min + "  stroka:" + (del1+1) + " stolb:" + (del2+1));
 		int ln, cn;
 			for (m = 0, ln = 0; ln < 3;) {
 				if (m!=del1) {
@@ -80,7 +81,44 @@ public class Matrix {
 				System.out.println();
 				
 				}
+				Scanner in = new Scanner(System.in);
+				System.out.println(" enter the number of rows and colums of second matrix");
+				p = in.nextInt();
+				q = in.nextInt(); 
+				if (p!= 4) {
+				System.out.println("Matrix can't be multiplicated");
+				}
+				else 
+				{
+					int second[][] = new int[p][q];
+					int mult[][] = new int[3][q];
+					System.out.println("enter the lements of matrix");
+					for(c = 0; c < 3; c++)
+					{
+						for(d = 0; d < q; d++)
+						{
+							for(k = 0; k < p; k++)
+							{
+								sum = sum + ac[c][k] * second[k][d];
+							}
+							mult[c][d] = sum;
+							sum = 0;
+						}
+					}
+					System.out.println("result:");
+					for (c = 0; c < 3; c++) {
+						for(d = 0; d < q; d++)
+							System.out.println(mult[c][d]);
+						
+					
+							}
+						}
+					}
+				}
+				
+				
 		}
 }
+
 
 
