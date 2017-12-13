@@ -1,6 +1,6 @@
 package Matrix;
 
-public class Matrix {
+public class Matrix {	
 	public static void main(String[] args) {		
 		int[][] ac = new int[4][5];
 		int[][] ac2 = new int[3][4];
@@ -17,33 +17,39 @@ public class Matrix {
 					System.out.println();
 					}
 		System.out.println(" ");		
-		int tmp[] = ac[0];
+		int tp[] = ac[0];
 		ac[0] = ac[3];
-		ac[3] = tmp;
+		ac[3] = tp;
+		
+		int rev[] = ac[0];
+		
+		for (int i = 0; i < rev.length / 2; i++) {
+	        int tmp = rev[i];
+	        rev[i] = rev[rev.length - i - 1];
+	        rev[rev.length - i - 1] = tmp;
+	    }
+		ac[0] = rev;
+		
+      rev = ac[3];
+		
+		for (int i = 0; i < rev.length / 2; i++) {
+	        int tmp = rev[i];
+	        rev[i] = rev[rev.length - i - 1];
+	        rev[rev.length - i - 1] = tmp;
+	    }
+		ac[3] = rev;
+		
+		
+		
+		
 		for(m = 0; m < 4; m++) {
 			for(n = 0; n < 5; n++) {
 				System.out.print(ac[m][n] + " ");
 				}
 				System.out.println();
 				}
+
 		
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-	
-			
-			
 			
 			for(m = 0; m < 4; m++) {
 				for(n = 0; n < 5; n++) {
@@ -76,3 +82,5 @@ public class Matrix {
 				}
 		}
 }
+
+
