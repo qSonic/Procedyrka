@@ -20,37 +20,23 @@ public class Matrix {
 		int tp[] = ac[0];
 		ac[0] = ac[3];
 		ac[3] = tp;
-		
 		int rev[] = ac[0];
-		
 		for (int i = 0; i < rev.length / 2; i++) {
 	        int tmp = rev[i];
 	        rev[i] = rev[rev.length - i - 1];
 	        rev[rev.length - i - 1] = tmp;
 	    }
 		ac[0] = rev;
-		
-      rev = ac[3];
-		
+        rev = ac[3];
 		for (int i = 0; i < rev.length / 2; i++) {
 	        int tmp = rev[i];
 	        rev[i] = rev[rev.length - i - 1];
-	        rev[rev.length - i - 1] = tmp;
-	    }
+	        rev[rev.length - i - 1] = tmp;}
 		ac[3] = rev;
-		
-		
-		
-		
 		for(m = 0; m < 4; m++) {
 			for(n = 0; n < 5; n++) {
-				System.out.print(ac[m][n] + " ");
-				}
-				System.out.println();
-				}
-
-		
-			
+				System.out.print(ac[m][n] + " ");}
+				System.out.println();}
 			for(m = 0; m < 4; m++) {
 				for(n = 0; n < 5; n++) {
 					if (ac[m][n] < min) {
@@ -67,8 +53,7 @@ public class Matrix {
 				if (m!=del1) {
 					for (n = 0,  cn= 0 ; cn<4; n++, cn++) {
 						if (n==del2) n++;
-							ac2[ln][cn]=ac[m][n];
-							}
+							ac2[ln][cn]=ac[m][n];}
 							m++;
 							ln++;
 					} else m++; 
@@ -76,49 +61,34 @@ public class Matrix {
 							ac=ac2;
 				for(m = 0; m < 3; m++) {
 					for(n = 0; n < 4; n++) {
-				System.out.print(ac[m][n] + " ");
-					}
+				System.out.print(ac[m][n] + " ");}
 				System.out.println();
-				
 				}
 				Scanner in = new Scanner(System.in);
 				System.out.println(" enter the number of rows and colums of second matrix");
 				p = in.nextInt();
 				q = in.nextInt(); 
-				if (p!= 4) {
+				if (p!= 4) 
 				System.out.println("Matrix can't be multiplicated");
-				}
-				else 
-				{
+				else {
 					int second[][] = new int[p][q];
 					int mult[][] = new int[3][q];
 					System.out.println("enter the lements of matrix");
-					for(c = 0; c < 3; c++)
-					{
-						for(d = 0; d < q; d++)
-						{
-							for(k = 0; k < p; k++)
-							{
-								sum = sum + ac[c][k] * second[k][d];
-							}
+					for ( c = 0 ; c < p ; c++ )
+			            for ( d = 0 ; d < q ; d++ )
+			               second[c][d] = in.nextInt();
+					for(c = 0; c < 3; c++) {
+						for(d = 0; d < q; d++) {
+							for(k = 0; k < p; k++) {
+								sum = sum + ac[c][k] * second[k][d];}
 							mult[c][d] = sum;
-							sum = 0;
+							sum = 0;}
 						}
-					}
 					System.out.println("result:");
 					for (c = 0; c < 3; c++) {
-						for(d = 0; d < q; d++)
-							System.out.println(mult[c][d]);
-						
-					
-							}
+						for(d = 0; d < q; d++) {
+							System.out.print(mult[c][d] + " ");}
+							System.out.println();}
 						}
-					}
-				}
-				
-				
-		}
-}
-
-
-
+				}			
+}	
