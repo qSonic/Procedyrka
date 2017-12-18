@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX 50
+#define STACK_OVERFLOW  -100
+#define STACK_UNDERFLOW -101
+
+
+typedef struct Stack
+{
+    int data[MAX];
+    size_t size; 
+} Stack_t;
+
+
+void push(Stack_t *stack, int value)
+{
+	 if (stack->size >= MAX) 
+	 {
+		 fprintf(stderr, "Stack OverFlow");
+		 exit(STACK_OVERFLOW);
+	 }
+	 else
+		 stack->data[stack->size] = value;
+     	 stack->size++;
+}
+
+
+int pop(Stack_t *stack) {
+    if (stack->size == 0) 
+    {
+    	fprintf(stderr, "Stack UnderFlow");
+        exit(STACK_UNDERFLOW);
+    }
+    else
+    	stack->size--;
+    	return stack->data[stack->size];
+}
+
+
+int main()
+{
+	 Stack_t stack;
+	 stack.size = 0; 
+	 fprintf(stderr, "Please type the expression\n");
+	     while (!feof(stdin))
+	     {
+	         int x = getchar();
+	         int r;
+	         switch (x)
+	         {
+	             case '\n':
+	             case ' ' :  break;
+	             case '=' :  printf("Result = %d\n", pop(&stack));
+	             	 	 	 printf("For exit type any char or you can continue type expression\n"); break;
+	             case '+' :  push(&stack, pop(&stack) + pop(&stack)); break;
+	             case '-' :  push(&stack, -pop(&stack) + pop(&stack)); break;
+	             case '*' :  push(&stack, pop(&stack) * pop(&stack)); break;
+	             default:
+	                 ungetc(x, stdin);
+	                 if (scanf("%d", &r) != 1)
+	                 {
+	                     fprintf(stderr, "exit\n");
+	                     return -1;
+	                 } else
+	                 {
+	                     push(&stack, r);
+	                 }
+	                 break;
+	          }
+	    }
+	return 0;
+}
