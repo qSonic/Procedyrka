@@ -51,13 +51,12 @@ int main()
 	         {
 	             case '\n':
 	             case ' ' :  break;
-	             case '=' :  printf("Result = %d\n", pop(&stack));
-	             	 	 	 printf("For exit type any char or you can continue type expression\n"); break;
+	             case '=' :  printf("Result = %d\n", pop(&stack)); break;
 	             case '+' :  push(&stack, pop(&stack) + pop(&stack)); break;
 	             case '-' :  push(&stack, -pop(&stack) + pop(&stack)); break;
 	             case '*' :  push(&stack, pop(&stack) * pop(&stack)); break;
 	             default:
-	                 ungetc(x, stdin);
+	                ungetc(x, stdin);
 	                 if (scanf("%d", &r) != 1)
 	                 {
 	                     fprintf(stderr, "exit\n");
